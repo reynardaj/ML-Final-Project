@@ -68,5 +68,5 @@ Upload an image of a plant leaf to check if it has powdery mildew.
 1. Click the "Choose an image..." button
 2. Select an image file (JPG, JPEG, or PNG)
 3. Wait for the analysis to complete
-4. View the prediction and confidence score
+4. View the prediction
 """)
