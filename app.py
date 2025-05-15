@@ -3,9 +3,10 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 import numpy as np
 from PIL import Image
+from tensorflow.keras.applications.resnet50 import preprocess_input
 
 # Load the model
-model = tf.keras.models.load_model('powdery_mildew_classifier_ResNet50_finetuned_tfdata.h5')
+model = tf.keras.models.load_model('powdery_mildew_resnet50_best.keras')
 
 def preprocess_image(img):
     # Convert to RGB if image has alpha channel
@@ -17,8 +18,8 @@ def preprocess_image(img):
     img_array = np.array(img)
     # Expand dimensions to match model input shape
     img_array = np.expand_dims(img_array, axis=0)
-    # Normalize pixel values
-    img_array = img_array / 255.0
+    # Preprocess using ResNet50's preprocess_input
+    img_array = preprocess_input(img_array)
     return img_array
 
 def predict_image(img):
