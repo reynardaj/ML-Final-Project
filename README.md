@@ -1,4 +1,12 @@
 # ML-Final-Project
+## Important 
+Install git LFS from https://git-lfs.com/
+
+run this once
+```
+git lfs install
+```
+
 ## Development
 ### Clone the repo
 ```
