@@ -27,11 +27,12 @@ def predict_image(img):
     img_array = preprocess_image(img)
     # Get predictions
     predictions = model.predict(img_array)
+    print('predictions:',   predictions)
     # Get the predicted class
-    predicted_class = np.argmax(predictions[0])
+    predicted_class = int(predictions[0][0] >= 0.5)
     # Get the confidence score
-    confidence = predictions[0][predicted_class] * 100
-    return predicted_class, confidence
+    print('predicted_class:', predicted_class)
+    return predicted_class
 
 st.title("Powdery Mildew Detection")
 
@@ -45,7 +46,9 @@ if uploaded_file is not None:
     
     # Make prediction
     with st.spinner('Analyzing image...'):
-        predicted_class, confidence = predict_image(image)
+        predicted_class = predict_image(image)
+    
+    print(predicted_class)
         
     # Show results
     st.subheader("Prediction")
@@ -53,7 +56,6 @@ if uploaded_file is not None:
         st.write("The plant is healthy!")
     else:
         st.write("Powdery mildew detected!")
-    st.write(f"Confidence: {confidence:.2f}%")
 
 st.markdown("""
 ---
