@@ -1,4 +1,6 @@
 # ML-Final-Project
+Access on https://ml-final-project1.streamlit.app/
+Or, Run on development environment:
 ## Important 
 Install git LFS from https://git-lfs.com/
 
